@@ -6,7 +6,7 @@
 "    By: sokwon <sokwon@student.42seoul.kr>         +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2022/12/03 03:36:54 by sokwon            #+#    #+#              "
-"    Updated: 2023/01/17 12:53:11 by sokwon           ###   ########.fr        "
+"    Updated: 2023/02/03 19:13:15 by sokwon           ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -218,7 +218,7 @@ let g:ctrlp_cmd='CtrlP .'
 " let g:ctrlp_map = ''
 " noremap <c-p> :CtrlP .<CR>
 " 최근 사용한 파일
-noremap <c-_> :CtrlPMRUFiles .<CR>
+noremap <C-/> :CtrlPMRUFiles .<CR>
 noremap <F5> :CtrlPClearCache<CR>
 
 " 구문 강조 사용

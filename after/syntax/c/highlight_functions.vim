@@ -7,5 +7,5 @@ syn match    cCustomClass    "\w\+\s*::" contains=cCustomScope
 
 syn match    cCustomArrow       "->"
 hi def       cCustomArrow       gui=bold
-syn match    cCustomStructFunc  "\(->\)\@<=\w\+\s*(\@=" contains=cCustomParen
+syn match    cCustomStructFunc  "\(->\)\@<=\w\+\n*\s*(\@=" contains=cCustomParen
 hi def       cCustomStructFunc  guifg=#83a598 gui=bold

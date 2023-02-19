@@ -6,6 +6,6 @@ syn match    cCustomClass    "\w\+\s*::" contains=cCustomScope
 " hi def link cCustomClass Function
 
 syn match    cCustomArrow       "->"
-hi def       cCustomArrow       guifg=#b16286
+hi def       cCustomArrow       guifg=#d3869b
 syn match    cCustomStructFunc  "\(->\)\@<=\w\+\n*\s*(\@=" contains=cCustomParen
 hi def       cCustomStructFunc  guifg=#83a598 gui=bold

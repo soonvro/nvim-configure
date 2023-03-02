@@ -6,7 +6,7 @@
 "    By: sokwon <sokwon@student.42seoul.kr>         +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2022/12/03 03:36:54 by sokwon            #+#    #+#              "
-"    Updated: 2023/02/28 22:04:13 by sokwon           ###   ########.fr        "
+"    Updated: 2023/03/02 21:58:13 by sokwon           ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -131,6 +131,8 @@ nnoremap <F9> :! norm %<CR>
 nnoremap <F10> :!cc_run %
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k
+vnoremap <C-j> 10j
+vnoremap <C-k> 10k
 
 " --------------------------------------------------
 " My Custom Wildignore

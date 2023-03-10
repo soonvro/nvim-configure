@@ -6,7 +6,7 @@
 "    By: sokwon <sokwon@student.42seoul.kr>         +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2022/12/03 03:36:54 by sokwon            #+#    #+#              "
-"    Updated: 2023/03/02 21:58:13 by sokwon           ###   ########.fr        "
+"    Updated: 2023/03/10 13:27:43 by sokwon           ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -129,10 +129,10 @@ augroup END
 " --------------------------------------------------
 nnoremap <F9> :! norm %<CR>
 nnoremap <F10> :!cc_run %
-nnoremap <C-j> 10j
-nnoremap <C-k> 10k
-vnoremap <C-j> 10j
-vnoremap <C-k> 10k
+noremap <C-j> 10j
+noremap <C-k> 10k
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
 
 " --------------------------------------------------
 " My Custom Wildignore

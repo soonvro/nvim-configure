@@ -9,3 +9,5 @@ syn match    cCustomArrow       "->"
 hi def       cCustomArrow       guifg=#d3869b
 syn match    cCustomStructFunc  "\(->\)\@<=\w\+\n*\s*(\@=" contains=cCustomParen
 hi def       cCustomStructFunc  guifg=#83a598 gui=bold
+syn match    cExclamationMark   "!"
+hi def       cExclamationMark   guifg=#d3869b

@@ -170,7 +170,11 @@ require("lazy").setup({
         },
     },
     -- vim-illuminate
-    "RRethy/vim-illuminate"
+    "RRethy/vim-illuminate",
+    {
+    "williamboman/mason.nvim",
+    build = ":MasonUpdate" -- :MasonUpdate updates registry contents
+    },
 })
 
 -- Color Scheme
@@ -192,6 +196,7 @@ require("bufferline").setup{
     },
 }
 
+-- TreeSitter
 require("nvim-treesitter.configs").setup{
     highlight = {
         enable = true,

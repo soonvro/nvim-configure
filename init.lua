@@ -166,14 +166,20 @@ require("lazy").setup({
         config = {
             window = {
                 width = 30,
-	    },
+        },
         },
     },
     -- vim-illuminate
     "RRethy/vim-illuminate",
+    -- mason
     {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate" -- :MasonUpdate updates registry contents
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+        dependencies = { 
+            "neovim/nvim-lspconfig",
+            "williamboman/mason-lspconfig.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+        },
     },
 })
 
@@ -250,4 +256,14 @@ require('illuminate').configure({
     large_file_overrides = nil,
     -- min_count_to_highlight: minimum number of matches required to perform highlighting
     min_count_to_highlight = 1,
+})
+
+require("mason").setup()
+
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.stylua,
+        require("null-ls").builtins.diagnostics.eslint,
+        require("null-ls").builtins.completion.spell,
+    },
 })

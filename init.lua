@@ -58,10 +58,10 @@ opt.timeoutlen = 300 --	Time in milliseconds to wait for a mapped sequence to co
 opt.showmode = false -- Do not need to show the mode. We use the statusline instead.
 opt.joinspaces = false -- No double spaces with join after a dot
 
--- show cursor line only in active window
+-- show cursor line only in active window and on normal mode
 local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
 autocmd(
-    { "InsertLeave", "WinEnter" },
+    { "InsertLeave", "WinEnter", "BufEnter" },
     { pattern = "*", command = "set cursorline", group = cursorGrp }
 )
 autocmd(

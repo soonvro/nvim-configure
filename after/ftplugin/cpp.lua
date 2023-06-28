@@ -27,5 +27,5 @@ vim.api.nvim_create_user_command(
 --------------------------------------------------------------------------------
 --                             My Custom Mapping                              --
 --------------------------------------------------------------------------------
-vim.api.nvim_set_keymap('n',  '<F9>', ':!cd build && cmake .. && make && less<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<F9>', ':!cd build && cmake .. && make && less<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<F10>', ':Execute<CR>',       { noremap = true, silent = true })

@@ -37,7 +37,7 @@ opt.relativenumber = true
 opt.tabstop     = 4 --파일에서 <Tab>이 사용하는 공백 수
 opt.softtabstop = 4 --편집하는 동안 <Tab>이 사용하는 공백 수
 opt.shiftwidth  = 4 -- (자동)들여쓰기 단계에 사용할 공백 수
-opt.expandtab   = false -- 탭 대신 공백 사용-> 파일 type에 따라 따로 설정할 것.
+opt.expandtab   = true -- 탭 대신 공백 사용-> 파일 type에 따라 따로 설정할 것.
 opt.breakindent = true --Enable long line indent
 opt.smartindent = true
 opt.cindent     = true
@@ -54,7 +54,7 @@ opt.termguicolors = true -- Enable colors in terminal
 opt.undofile = true --Save undo history
 opt.updatetime = 250 --Decrease update time
 opt.signcolumn = "yes" -- Always show sign column
-opt.timeoutlen = 300 --	Time in milliseconds to wait for a mapped sequence to complete.
+opt.timeoutlen = 700 --	Time in milliseconds to wait for a mapped sequence to complete.
 opt.showmode = false -- Do not need to show the mode. We use the statusline instead.
 opt.joinspaces = false -- No double spaces with join after a dot
 
@@ -186,6 +186,10 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
+    {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    }
 })
 
 -- Color Scheme
@@ -354,3 +358,9 @@ cmp.setup.cmdline(':', {
     })
 })
 
+-- telescope setting
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})

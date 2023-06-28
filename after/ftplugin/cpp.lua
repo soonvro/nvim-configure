@@ -19,13 +19,13 @@ end
 vim.api.nvim_create_user_command(
     'Execute',
     function ()
-        local program_name = execute_shell_command("make print-NAME")
-        vim.api.nvim_input(string.format(":!./%s", program_name))
+        local program_name = execute_shell_command("cd build && make print-name | sed -n '1p' | tr -d '\n'")
+        vim.api.nvim_input(string.format(":!./build/%s", program_name))
     end,
     {}
 )
 --------------------------------------------------------------------------------
 --                             My Custom Mapping                              --
 --------------------------------------------------------------------------------
-vim.api.nvim_set_keymap('n',  '<F9>', ':!make && less<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n',  '<F9>', ':!cd build && cmake .. && make && less<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<F10>', ':Execute<CR>',       { noremap = true, silent = true })

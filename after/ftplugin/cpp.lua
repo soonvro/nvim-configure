@@ -20,7 +20,7 @@ vim.api.nvim_create_user_command(
     'Execute',
     function ()
         local program_name = execute_shell_command("cd build && make print-name | sed -n '1p' | tr -d '\n'")
-        vim.api.nvim_input(string.format(":!./build/%s", program_name))
+        vim.api.nvim_input(string.format(":terminal ./build/%s", program_name))
     end,
     {}
 )

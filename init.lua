@@ -367,9 +367,15 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 local actions = require("telescope.actions")
 require("telescope").setup{
   defaults = {
+    layout_config = {
+      horizontal = {
+        preview_cutoff = 0,
+      },
+    },
     mappings = {
       i = {
-        ["<C-f>"] = actions.close
+        ["<C-f>"] = actions.close,
+        ['<Right>'] = require('telescope.actions.layout').toggle_preview,
       },
     },
   }

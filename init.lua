@@ -291,15 +291,16 @@ local custom_attach = function(client)
     vim_map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
     vim_map('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
     vim_map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
-    vim_map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-    vim_map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-    vim_map('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
+    vim_map('n','<leader>lr','<cmd>lua vim.lsp.buf.rename()<CR>')
+    vim_map('n','<leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>')
     vim_map('n','<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
-    vim_map('n','<leader>ee','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
-    vim_map('n','<leader>r','<cmd>lua vim.lsp.buf.rename()<CR>')
-    vim_map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-    vim_map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
-    vim_map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+    -- vim_map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+    -- vim_map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+    -- vim_map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    -- vim_map('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
+    -- vim_map('n','<leader>ee','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+    -- vim_map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+    -- vim_map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
 end
 require("mason-lspconfig").setup_handlers {
     function (server_name) -- default handler (optional)
@@ -380,3 +381,18 @@ require("telescope").setup{
     },
   }
 }
+
+-- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+-- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+-- -- Global mappings.
+-- -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+-- 
+-- vim.diagnostic.config({
+--   float = {
+--     border = 'rounded',
+--   },
+-- })

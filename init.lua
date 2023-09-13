@@ -368,6 +368,9 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 local actions = require("telescope.actions")
 require("telescope").setup{
   defaults = {
+    file_ignore_patterns = { 
+      "build/" 
+    },
     layout_config = {
       horizontal = {
         preview_cutoff = 0,

@@ -1,10 +1,10 @@
 --------------------------------------------------------------------------------
 --                                Tab Setting                                 --
 --------------------------------------------------------------------------------
-vim.opt.tabstop     = 4 --파일에서 <Tab>이 사용하는 공백 수
-vim.opt.softtabstop = 4 --편집하는 동안 <Tab>이 사용하는 공백 수
-vim.opt.shiftwidth  = 4 -- (자동)들여쓰기 단계에 사용할 공백 수
+vim.opt.softtabstop = 2 --편집하는 동안 <Tab>이 사용하는 공백 수
+vim.opt.shiftwidth  = 2 -- (자동)들여쓰기 단계에 사용할 공백 수
 vim.opt.expandtab   = true -- 탭 대신 공백 사용
+vim.opt.tabstop     = 4 --파일에서 <Tab>이 사용하는 공백 수
 
 --------------------------------------------------------------------------------
 --                             My Custom Mapping                              --
@@ -27,7 +27,6 @@ vim.api.nvim_create_user_command(
 --------------------------------------------------------------------------------
 --                             My Custom Mapping                              --
 --------------------------------------------------------------------------------
+-- function keys
 vim.api.nvim_set_keymap('n', '<F9>', ':!cd build && cmake .. && make && less<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<F10>', ':Execute<CR>',       { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-9>', '<F9>', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', '<C-0>', '<F10>', { noremap = false, silent = true })

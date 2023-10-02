@@ -186,10 +186,12 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
+    -- nvim-telescope
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
+    -- symbols-outline
     "simrat39/symbols-outline.nvim"
 })
 
@@ -276,6 +278,7 @@ require('illuminate').configure({
     -- },
 -- })
 
+-- mason
 require("mason").setup()
 local vim_map = function(type, key, value)
 	vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = false});
@@ -329,7 +332,10 @@ cmp.setup({
         {
             { name = 'nvim_lsp' },
         },
-        {{ name = 'buffer' },}
+        {
+            { name = 'buffer' },
+            { name = 'path' },
+        }
     )
 })
 

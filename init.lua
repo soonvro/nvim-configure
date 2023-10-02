@@ -308,7 +308,10 @@ local custom_attach = function(client)
 end
 require("mason-lspconfig").setup_handlers {
     function (server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {on_attach = custom_attach}
+        require("lspconfig")[server_name].setup {
+            on_attach = custom_attach,
+            -- capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        }
     end
 }
 require("mason-lspconfig").setup()

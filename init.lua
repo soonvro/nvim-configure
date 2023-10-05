@@ -402,7 +402,7 @@ require("symbols-outline").setup{
   auto_preview = false,
   position = 'right',
   relative_width = false,
-  width = 30,
+  width = 35,
   auto_close = false,
   show_numbers = false,
   show_relative_numbers = false,

@@ -24,6 +24,16 @@ vim.api.nvim_create_user_command(
     end,
     {}
 )
+
+vim.api.nvim_create_user_command(
+    'GdbCompile',
+    function ()
+        execute_shell_command("cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make")
+    end,
+    {}
+)
+
+
 --------------------------------------------------------------------------------
 --                             My Custom Mapping                              --
 --------------------------------------------------------------------------------

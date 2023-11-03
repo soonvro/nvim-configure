@@ -379,7 +379,10 @@ local actions = require("telescope.actions")
 require("telescope").setup{
   defaults = {
     file_ignore_patterns = { 
-      "build/" 
+      "build/",
+      "%.o",
+      "%.d",
+      "%.out",
     },
     layout_config = {
       horizontal = {

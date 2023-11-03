@@ -83,15 +83,15 @@ autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 -- Always keep the cursor centered.
 -- https://stackoverflow.com/questions/13398631/always-keep-the-cursor-centered-in-vim
-function CentreCursor()
-    local pos = api.nvim_win_get_cursor(0)
-    cmd("normal! zz")
-    api.nvim_win_set_cursor(0, pos)
-end
-autocmd(
-    {"CursorMoved", "CursorMovedI"},
-    { pattern = "*", command = "lua CentreCursor()"}
-)
+-- function CentreCursor()
+--     local pos = api.nvim_win_get_cursor(0)
+--     cmd("normal! zz")
+--     api.nvim_win_set_cursor(0, pos)
+-- end
+-- autocmd(
+--     {"CursorMoved", "CursorMovedI"},
+--     { pattern = "*", command = "lua CentreCursor()"}
+-- )
 -- opt.scrolloff = 999 -- Lines of context -> This helps mouse wheel up/down
 
 --------------------------------------------------------------------------------

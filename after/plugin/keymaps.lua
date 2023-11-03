@@ -9,8 +9,8 @@ vim.keymap.set({'i', 'n', 'v', 'o', 't'}, '<C-f>', '<Esc>',         { noremap = 
 -- existing which is Ctrl-C
 vim.keymap.set('c', '<C-f>', '<C-c>',         { noremap = true, silent = true })
 
-vim.keymap.set({'n', 'v'}, '<C-j>',   '10j',          { noremap = true, silent = true })
-vim.keymap.set({'n', 'v'}, '<C-k>',   '10k',          { noremap = true, silent = true })
+vim.keymap.set({'n', 'v'}, '<C-j>',   '3<C-e>',          { noremap = true, silent = true })
+vim.keymap.set({'n', 'v'}, '<C-k>',   '3<C-y>',          { noremap = true, silent = true })
 vim.keymap.set({'n', 'v'}, '<C-h>',   ':bp<CR>',      { noremap = true, silent = true })
 vim.keymap.set({'n', 'v'}, '<C-l>',   ':bn<CR>',      { noremap = true, silent = true })
 

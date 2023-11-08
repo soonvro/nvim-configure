@@ -57,6 +57,7 @@ opt.signcolumn = "yes" -- Always show sign column
 opt.timeoutlen = 700 --	Time in milliseconds to wait for a mapped sequence to complete.
 opt.showmode = false -- Do not need to show the mode. We use the statusline instead.
 opt.joinspaces = false -- No double spaces with join after a dot
+opt.scrolloff = 2 -- Lines of context -> This helps mouse wheel up/down
 
 -- show cursor line only in active window and on normal mode
 local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })

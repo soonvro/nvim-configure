@@ -14,7 +14,7 @@ return {
     end,
     desc = "Explorer NeoTree (cwd)",
   }},
-  config = {
+  opts = {
     window = {
       width = 30,
     },

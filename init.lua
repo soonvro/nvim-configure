@@ -5,18 +5,8 @@
 --   By: soonumor <soonumor@gmail.com>                    --
 --                                      --
 --------------------------------------------------------------------------------
-
 --------------------------------------------------------------------------------
---                Dependencies                --
---------------------------------------------------------------------------------
-
-
---------------------------------------------------------------------------------
---                 Plugin List                --
---------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
---                 Local Variables                --
+--                              Local Variables                               --
 --------------------------------------------------------------------------------
 local g     = vim.g
 local api   = vim.api
@@ -25,7 +15,7 @@ local cmd   = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 
 --------------------------------------------------------------------------------
---                My nvim settings                --
+--                              My nvim settings                              --
 --------------------------------------------------------------------------------
 -- Remap leader and local leader to <Space>
 api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
@@ -96,14 +86,36 @@ autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 -- opt.scrolloff = 999 -- Lines of context -> This helps mouse wheel up/down
 
 --------------------------------------------------------------------------------
---               My Custom Wildignore               --
+--                            My Custom Wildignore                            --
 --------------------------------------------------------------------------------
 vim.o.wildignore = vim.o.wildignore .. '*.o'
 vim.o.wildignore = vim.o.wildignore .. '*.out,*.so,*.swp,*.zip'
 vim.o.wildignore = vim.o.wildignore .. '*\\tmp\\*,*.swp,*.zip,*.exe'
 
 --------------------------------------------------------------------------------
---               lazy.nvim Bootstrap              --
+--                            My Custom initialize                            --
+--------------------------------------------------------------------------------
+local function isempty(s)
+  return s == nil or s == ""
+end
+local function use_if_defined(val, fallback)
+  return val ~= nil and val or fallback
+end
+
+-- custom python provider
+local conda_prefix = os.getenv("CONDA_PREFIX")
+if not isempty(conda_prefix) then
+    vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog,
+                                            conda_prefix .. "/bin/python")
+    vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog,
+                                             conda_prefix .. "/bin/python3")
+else
+    vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog, "python")
+    vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog, "python3")
+end
+
+--------------------------------------------------------------------------------
+--                            lazy.nvim Bootstrap                             --
 --------------------------------------------------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -118,12 +130,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
---------------------------------------------------------------------------------
---              lazy.nvim Plugin List               --
---------------------------------------------------------------------------------
 require("lazy").setup("plugins")
 
--- Color Scheme
+--------------------------------------------------------------------------------
+--                               Color Scheme                                 --
+--------------------------------------------------------------------------------
 vim.cmd("colorscheme everforest")
 
 -- require("null-ls").setup({

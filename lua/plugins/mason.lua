@@ -50,5 +50,19 @@ return {
       end
     }
     require("mason-lspconfig").setup()
+
+    require("lspconfig").pyright.setup {
+      on_attach = custom_attach,
+      capabilities = { offsetEncoding = "utf-16", },
+      -- turn off reportGeneralTypeIssues
+      settings = {
+        python = {
+          analysis = {
+            typeCheckingMode = "off",
+            -- reportGeneralTypeIssues = false,
+          },
+        },
+      },
+    }
   end,
 }

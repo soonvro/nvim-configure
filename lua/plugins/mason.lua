@@ -40,12 +40,15 @@ return {
       -- vim_map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
       -- vim_map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
     end
+
+    local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+    lsp_capabilities.offsetEncoding = "utf-16"
+
     require("mason-lspconfig").setup_handlers {
       function (server_name) -- default handler (optional)
         require("lspconfig")[server_name].setup {
           on_attach = custom_attach,
-          capabilities = { offsetEncoding = "utf-16", },
-          -- capabilities = require('cmp_nvim_lsp').default_capabilities(),
+          capabilities = lsp_capabilities,
         }
       end
     }
@@ -53,7 +56,7 @@ return {
 
     require("lspconfig").pyright.setup {
       on_attach = custom_attach,
-      capabilities = { offsetEncoding = "utf-16", },
+      capabilities = lsp_capabilities,
       -- turn off reportGeneralTypeIssues
       settings = {
         python = {
@@ -66,3 +69,21 @@ return {
     }
   end,
 }
+--Enable completion
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- 
+-- local general_on_attach = function(client, bufnr)
+--   if client.resolved_capabilities.completion then
+--     require("completion").on_attach(client, bufnr)
+--   end
+-- end
+-- 
+-- -- Setup basic lsp servers
+-- for _, server in pairs({"html", "cssls"}) do
+--   require("lspconfig")[server].setup {
+--     -- Add capabilities
+--     capabilities = capabilities,
+--     on_attach = general_on_attach
+--   }
+-- end

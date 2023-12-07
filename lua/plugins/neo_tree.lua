@@ -36,12 +36,26 @@ return {
         }, {})
       end,
       desc = "Explorer NeoTree (buffers)",
-    }
+    },
+    {
+      "<F18>", -- shift+F6
+      function()
+        vim.api.nvim_cmd({
+          cmd = "Neotree",
+          args = {
+            "source=git_status",
+            "toggle",
+            "reveal",
+          },
+        }, {})
+      end,
+      desc = "Explorer NeoTree (buffers)",
+    },
   },
   config = function()
     require("neo-tree").setup{
       window = {
-        width = 30,
+        width = 40,
       },
     }
   end,

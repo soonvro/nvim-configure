@@ -105,17 +105,21 @@ end
 -- custom python provider
 local conda_prefix = os.getenv("CONDA_PREFIX")
 if not isempty(conda_prefix) then
-    vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog,
-                                            conda_prefix .. "/bin/python")
-    vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog,
-                                             conda_prefix .. "/bin/python3")
+  vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog,
+                                          conda_prefix .. "/bin/python")
+  vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog,
+                                           conda_prefix .. "/bin/python3")
 else
-    vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog, "python")
-    vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog, "python3")
+  vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog, "python")
+  vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog, "python3")
 end
 
 require("modules/my_scrolloff").setup(2)
 
+vim.api.nvim_create_autocmd(
+  { "BufEnter", },
+  { pattern = "*.html", command = "set filetype=htmldjango" }
+)
 --------------------------------------------------------------------------------
 --                            lazy.nvim Bootstrap                             --
 --------------------------------------------------------------------------------

@@ -81,6 +81,10 @@ return {
 --       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
 --       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
+    config = function()
+      require("flash").setup {}
+      vim.keymap.set({'n', 'x', 'o'}, "f", "<cmd>lua require('flash').jump()<CR>", { noremap = true, silent = true })
+    end,
   },
 
   -- Copliot

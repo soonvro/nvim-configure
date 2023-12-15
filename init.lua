@@ -24,9 +24,9 @@ g.maplocalleader = " "
 
 opt.number     = true
 opt.relativenumber = true
-opt.tabstop   = 4 --파일에서 <Tab>이 사용하는 공백 수
-opt.softtabstop = 4 --편집하는 동안 <Tab>이 사용하는 공백 수
-opt.shiftwidth  = 4 -- (자동)들여쓰기 단계에 사용할 공백 수
+opt.tabstop   = 2 --파일에서 <Tab>이 사용하는 공백 수
+opt.softtabstop = 2 --편집하는 동안 <Tab>이 사용하는 공백 수
+opt.shiftwidth  = 2 -- (자동)들여쓰기 단계에 사용할 공백 수
 opt.expandtab   = true -- 탭 대신 공백 사용-> 파일 type에 따라 따로 설정할 것.
 opt.breakindent = true --Enable long line indent
 opt.smartindent = true
@@ -49,6 +49,7 @@ opt.showmode = false -- Do not need to show the mode. We use the statusline inst
 opt.joinspaces = false -- No double spaces with join after a dot
 -- opt.scrolloff = 2 -- Lines of context -> This helps mouse wheel up/down
 
+-- vim.api.nvim_command("set guicursor=n-v-c-r-cr-ci-ve-o:block,i:ver50")
 -- show cursor line only in active window and on normal mode
 local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
 autocmd(

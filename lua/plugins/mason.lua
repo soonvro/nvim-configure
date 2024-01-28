@@ -54,19 +54,19 @@ return {
     }
     require("mason-lspconfig").setup()
 
-    require("lspconfig").pyright.setup {
-      on_attach = custom_attach,
-      capabilities = lsp_capabilities,
-      -- turn off reportGeneralTypeIssues
-      settings = {
-        python = {
-          analysis = {
-            typeCheckingMode = "off",
-            -- reportGeneralTypeIssues = false,
-          },
-        },
-      },
-    }
+--     require("lspconfig").pyright.setup {
+--       on_attach = custom_attach,
+--       capabilities = lsp_capabilities,
+--       -- turn off reportGeneralTypeIssues
+--       settings = {
+--         python = {
+--           analysis = {
+--             typeCheckingMode = "off",
+--             -- reportGeneralTypeIssues = false,
+--           },
+--         },
+--       },
+--     }
   end,
 }
 --Enable completion

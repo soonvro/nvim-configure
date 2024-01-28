@@ -65,14 +65,14 @@ return {
     opts = {},
     -- stylua: ignore
     keys = {
+--       {
+--         "<leader>s",
+--         mode = { "n", "x", "o" },
+--         function() require("flash").jump() end,
+--         desc = "Flash"
+--       },
       {
-        "<leader>s",
-        mode = { "n", "x", "o" },
-        function() require("flash").jump() end,
-        desc = "Flash"
-      },
-      {
-        "<leader>S",
+        "<leader>f",
         mode = { "n", "x", "o" },
         function() require("flash").treesitter() end,
         desc = "Flash Treesitter"
@@ -87,7 +87,14 @@ return {
     end,
   },
 
+  -- Auto Pairs
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
+
   -- Copliot
-  "github/copilot.vim",
+  -- "github/copilot.vim",
   -- "jose-elias-alvarez/null-ls.nvim",
 }
